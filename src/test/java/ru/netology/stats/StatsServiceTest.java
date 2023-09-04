@@ -46,4 +46,23 @@ public class StatsServiceTest {
         Assertions.assertEquals(expectedAverageMonth, actualAverageMonth);
     }
 
+    @Test
+    public void shouldFindBelowAverageSalesInMonth() {
+        StatsService service = new StatsService();
+
+        int expectedBelowAverageMonth = 5;
+        int actualBelowAverageMonth = service.belowAverageSales(months);
+
+        Assertions.assertEquals(expectedBelowAverageMonth, actualBelowAverageMonth);
+    }
+
+    @Test
+    public void shouldFindAboveAverageSalesInMonth() {
+        StatsService service = new StatsService();
+
+        int expectedAboveAverageMonth = 5;
+        int actualAboveAverageMonth = service.belowAverageSales(months);
+
+        Assertions.assertEquals(expectedAboveAverageMonth, actualAboveAverageMonth);
+    }
 }

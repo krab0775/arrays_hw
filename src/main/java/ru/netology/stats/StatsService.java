@@ -36,14 +36,36 @@ public class StatsService {
 
     public int averageSales(int[] sales) {
         int averageMonth = 0;
-        if (sales.length > 0) ;
-        {
+        if (sales.length > 0) {
             int sum = 0;
             for (int i = 0; i < sales.length; i++) {
                 sum += sales[i];
                 averageMonth = sum / sales.length;
             }
-            return averageMonth;
         }
+        return averageMonth;
+    }
+    public int belowAverageSales(int [] sales) {
+        StatsService StatsService = new StatsService();
+        int actualSumAvg = StatsService.averageSales(sales);
+        int belowAverageMonth =0;
+        for (int i = 0; i < sales.length; i++) {
+            if (sales [i] < actualSumAvg) {
+        belowAverageMonth += 1;
+            }
+        }
+        return belowAverageMonth;
+    }
+
+    public int aboveAverageSales(int [] sales) {
+        StatsService StatsService = new StatsService();
+        int actualSumAvg = StatsService.averageSales(sales);
+        int aboveAverageMonth = 0;
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i] > actualSumAvg) {
+                aboveAverageMonth += 1;
+            }
+        }
+        return aboveAverageMonth;
     }
 }
