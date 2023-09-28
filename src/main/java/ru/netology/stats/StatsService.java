@@ -25,47 +25,46 @@ public class StatsService {
     }
 
     public int sumSales(int[] sales) {
-        int sumMonth = 0;
+        int sum = 0;
 
         for (int i = 0; i < sales.length; i++) {
-            sumMonth += sales[i];
+            sum += sales[i];
         }
-        return sumMonth;
+        return sum;
 
     }
 
     public int averageSales(int[] sales) {
-        int averageMonth = 0;
-        if (sales.length > 0) {
-            int sum = 0;
-            for (int i = 0; i < sales.length; i++) {
-                sum += sales[i];
-                averageMonth = sum / sales.length;
-            }
-        }
-        return averageMonth;
-    }
-    public int belowAverageSales(int [] sales) {
-        StatsService StatsService = new StatsService();
-        int actualSumAvg = StatsService.averageSales(sales);
-        int belowAverageMonth =0;
+        int sum = 0;
+        int avgSum;
         for (int i = 0; i < sales.length; i++) {
-            if (sales [i] < actualSumAvg) {
-        belowAverageMonth += 1;
-            }
+            sum += sales[i];
         }
-        return belowAverageMonth;
+        avgSum = sum / sales.length;
+        return avgSum;
     }
 
-    public int aboveAverageSales(int [] sales) {
+    public int belowAverageSales(int[] sales) {
         StatsService StatsService = new StatsService();
         int actualSumAvg = StatsService.averageSales(sales);
-        int aboveAverageMonth = 0;
+        int belowAverage = 0;
         for (int i = 0; i < sales.length; i++) {
-            if (sales[i] > actualSumAvg) {
-                aboveAverageMonth += 1;
+            if (sales[i] < actualSumAvg) {
+                belowAverage += 1;
             }
         }
-        return aboveAverageMonth;
+        return belowAverage;
+    }
+
+    public int aboveAverageSales(int[] sales) {
+        StatsService StatsService = new StatsService();
+        int actualSumAvg = StatsService.averageSales(sales);
+        int aboveAverage = 0;
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i] > actualSumAvg) {
+                aboveAverage += 1;
+            }
+        }
+        return aboveAverage;
     }
 }
